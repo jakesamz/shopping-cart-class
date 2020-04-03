@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css">
+  </head>
+  <body>
+    <h1>My Shopping Cart</h1>
+    <div id="app">
+    <div v-for="(item, i) in products">
+      <button @click="cart.add(item)">add {{item.name}}</button>
+      <button @click="cart.remove(item)">remove {{item.name}}</button>
+    </div>  
+    Shopping Cart: {{count}} items, total price is {{totalPrice}}
+      <table border="1" cellspacing="0" cellpadding="0">
+        <tr>
+          <th>id</th><th>name</th><th>unit price</th>
+          <th>count</th><th>price</th>
+        </tr>
+        <tr v-for="(item, i) in cart.list">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.count}}</td>
+          <td>{{item.price * item.count}}</td>
+        </tr>
+      </ul>
+    </div>
+    
+  </body>
+    <script type="module" src="lib/script.js"></script>
+</html>
